@@ -1,13 +1,25 @@
 import { Link } from "react-router-dom";
 
 function Header() {
+
+  const closeMenu = () => {
+    const offcanvasEl = document.getElementById("mobileMenu");
+    if (offcanvasEl) {
+      const bsOffcanvas = window.bootstrap.Offcanvas.getInstance(offcanvasEl);
+      bsOffcanvas?.hide();
+    }
+  };
+
   return (
     <>
-      <nav className="navbar navbar-dark bg-dark navbar-expand-lg">
+      {/* NAVBAR */}
+      <nav className="navbar navbar-dark bg-dark">
         <div className="container">
-          <Link className="navbar-brand" to="/">React_Project</Link>
+          <Link className="navbar-brand" to="/">
+            React_Project
+          </Link>
 
-          {/* ✅ TOGGLER BUTTON */}
+          {/* TOGGLER */}
           <button
             className="navbar-toggler"
             type="button"
@@ -16,21 +28,10 @@ function Header() {
           >
             <span className="navbar-toggler-icon"></span>
           </button>
-
-          {/* ✅ DESKTOP MENU */}
-          <div className="collapse navbar-collapse d-none d-lg-block">
-            <ul className="navbar-nav ms-auto">
-              <li className="nav-item"><Link className="nav-link" to="/">Home</Link></li>
-              <li className="nav-item"><Link className="nav-link" to="/form">Form</Link></li>
-              <li className="nav-item"><Link className="nav-link" to="/about">About Us</Link></li>
-              <li className="nav-item"><Link className="nav-link" to="/contact">Contact</Link></li>
-              <li className="nav-item"><Link className="nav-link" to="/counter">Counter</Link></li>
-            </ul>
-          </div>
         </div>
       </nav>
 
-      {/* ✅ MOBILE OFFCANVAS MENU */}
+      {/* OFFCANVAS MENU */}
       <div
         className="offcanvas offcanvas-end"
         tabIndex="-1"
@@ -49,31 +50,31 @@ function Header() {
           <ul className="navbar-nav">
 
             <li className="nav-item">
-              <Link className="nav-link" to="/" data-bs-dismiss="offcanvas">
+              <Link className="nav-link" to="/" onClick={closeMenu}>
                 Home
               </Link>
             </li>
 
             <li className="nav-item">
-              <Link className="nav-link" to="/form" data-bs-dismiss="offcanvas">
+              <Link className="nav-link" to="/form" onClick={closeMenu}>
                 Form
               </Link>
             </li>
 
             <li className="nav-item">
-              <Link className="nav-link" to="/about" data-bs-dismiss="offcanvas">
+              <Link className="nav-link" to="/about" onClick={closeMenu}>
                 About Us
               </Link>
             </li>
 
             <li className="nav-item">
-              <Link className="nav-link" to="/contact" data-bs-dismiss="offcanvas">
+              <Link className="nav-link" to="/contact" onClick={closeMenu}>
                 Contact
               </Link>
             </li>
 
             <li className="nav-item">
-              <Link className="nav-link" to="/counter" data-bs-dismiss="offcanvas">
+              <Link className="nav-link" to="/counter" onClick={closeMenu}>
                 Counter
               </Link>
             </li>
