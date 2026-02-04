@@ -1,61 +1,87 @@
-import { Link, useNavigate } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 function Header() {
-  const [isAdmin, setIsAdmin] = useState(false);
-  const navigate = useNavigate();
-
-  useEffect(() => {
-    setIsAdmin(!!localStorage.getItem("admin_token"));
-  }, []);
-
-  const logout = () => {
-    localStorage.removeItem("admin_token");
-    navigate("/");
-    window.location.reload();
-  };
-
   return (
-    <nav className="navbar navbar-dark bg-dark navbar-expand-lg">
-      <div className="container">
-        <Link className="navbar-brand" to="/">React_Project</Link>
+    <>
+      <nav className="navbar navbar-dark bg-dark navbar-expand-lg">
+        <div className="container">
+          <Link className="navbar-brand" to="/">React_Project</Link>
 
-        <div className="collapse navbar-collapse">
-          <ul className="navbar-nav ms-auto">
+          {/* ✅ TOGGLER BUTTON */}
+          <button
+            className="navbar-toggler"
+            type="button"
+            data-bs-toggle="offcanvas"
+            data-bs-target="#mobileMenu"
+          >
+            <span className="navbar-toggler-icon"></span>
+          </button>
 
-            <li className="nav-item"><Link className="nav-link" to="/">Home</Link></li>
-            <li className="nav-item"><Link className="nav-link" to="/form">Form</Link></li>
-            <li className="nav-item"><Link className="nav-link" to="/about">About Us</Link></li>
-            <li className="nav-item"><Link className="nav-link" to="/contact">Contact</Link></li>
-            <li className="nav-item"><Link className="nav-link" to="/counter">Counter</Link></li>
+          {/* ✅ DESKTOP MENU */}
+          <div className="collapse navbar-collapse d-none d-lg-block">
+            <ul className="navbar-nav ms-auto">
+              <li className="nav-item"><Link className="nav-link" to="/">Home</Link></li>
+              <li className="nav-item"><Link className="nav-link" to="/form">Form</Link></li>
+              <li className="nav-item"><Link className="nav-link" to="/about">About Us</Link></li>
+              <li className="nav-item"><Link className="nav-link" to="/contact">Contact</Link></li>
+              <li className="nav-item"><Link className="nav-link" to="/counter">Counter</Link></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
 
-            {!isAdmin && (
-              <li className="nav-item">
-                <Link className="btn btn-outline-light ms-3" to="/login">
-                  Admin Login
-                </Link>
-              </li>
-            )}
+      {/* ✅ MOBILE OFFCANVAS MENU */}
+      <div
+        className="offcanvas offcanvas-end"
+        tabIndex="-1"
+        id="mobileMenu"
+      >
+        <div className="offcanvas-header">
+          <h5 className="offcanvas-title">Menu</h5>
+          <button
+            type="button"
+            className="btn-close"
+            data-bs-dismiss="offcanvas"
+          ></button>
+        </div>
 
-            {isAdmin && (
-              <>
-                <li className="nav-item">
-                  <Link className="btn btn-success ms-3" to="/admin">
-                    Admin Panel
-                  </Link>
-                </li>
-                <li className="nav-item">
-                  <button className="btn btn-danger ms-2" onClick={logout}>
-                    Logout
-                  </button>
-                </li>
-              </>
-            )}
+        <div className="offcanvas-body">
+          <ul className="navbar-nav">
+
+            <li className="nav-item">
+              <Link className="nav-link" to="/" data-bs-dismiss="offcanvas">
+                Home
+              </Link>
+            </li>
+
+            <li className="nav-item">
+              <Link className="nav-link" to="/form" data-bs-dismiss="offcanvas">
+                Form
+              </Link>
+            </li>
+
+            <li className="nav-item">
+              <Link className="nav-link" to="/about" data-bs-dismiss="offcanvas">
+                About Us
+              </Link>
+            </li>
+
+            <li className="nav-item">
+              <Link className="nav-link" to="/contact" data-bs-dismiss="offcanvas">
+                Contact
+              </Link>
+            </li>
+
+            <li className="nav-item">
+              <Link className="nav-link" to="/counter" data-bs-dismiss="offcanvas">
+                Counter
+              </Link>
+            </li>
 
           </ul>
         </div>
       </div>
-    </nav>
+    </>
   );
 }
 
