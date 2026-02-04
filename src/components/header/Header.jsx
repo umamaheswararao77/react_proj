@@ -15,13 +15,34 @@ function Header() {
       {/* NAVBAR */}
       <nav className="navbar navbar-dark bg-dark">
         <div className="container">
+
+          {/* LOGO */}
           <Link className="navbar-brand" to="/">
             React_Project
           </Link>
 
-          {/* TOGGLER */}
+          {/* ===== DESKTOP MENU ===== */}
+          <ul className="navbar-nav flex-row gap-3 d-none d-lg-flex">
+            <li className="nav-item">
+              <Link className="nav-link" to="/">Home</Link>
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link" to="/form">Form</Link>
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link" to="/about">About Us</Link>
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link" to="/contact">Contact</Link>
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link" to="/counter">Counter</Link>
+            </li>
+          </ul>
+
+          {/* ===== MOBILE TOGGLER ===== */}
           <button
-            className="navbar-toggler"
+            className="navbar-toggler d-lg-none"
             type="button"
             data-bs-toggle="offcanvas"
             data-bs-target="#mobileMenu"
@@ -31,12 +52,8 @@ function Header() {
         </div>
       </nav>
 
-      {/* OFFCANVAS MENU */}
-      <div
-        className="offcanvas offcanvas-end"
-        tabIndex="-1"
-        id="mobileMenu"
-      >
+      {/* ===== MOBILE OFFCANVAS MENU ===== */}
+      <div className="offcanvas offcanvas-end" id="mobileMenu">
         <div className="offcanvas-header">
           <h5 className="offcanvas-title">Menu</h5>
           <button
