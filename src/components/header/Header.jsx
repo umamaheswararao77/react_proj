@@ -12,11 +12,11 @@ function Header() {
 
   return (
     <>
-      {/* NAVBAR */}
-      <nav className="navbar navbar-dark bg-dark">
+      
+      <nav className="navbar navbar-dark bg-dark sticky-top ">
         <div className="container">
 
-          {/* LOGO */}
+          
           <Link className="navbar-brand" to="/">
             React_Project
           </Link>
@@ -37,6 +37,12 @@ function Header() {
             </li>
             <li className="nav-item">
               <Link className="nav-link" to="/counter">Counter</Link>
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link" to="/products">Products</Link>
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link" to="/inquiries">Inquiries</Link>
             </li>
           </ul>
 
@@ -89,10 +95,21 @@ function Header() {
                 Contact
               </Link>
             </li>
+            
 
             <li className="nav-item">
               <Link className="nav-link" to="/counter" onClick={closeMenu}>
                 Counter
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link" to="/products" onClick={closeMenu}>
+                Products
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link" to="/inquiries" onClick={closeMenu}>
+                Inquiries
               </Link>
             </li>
 

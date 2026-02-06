@@ -3,7 +3,8 @@ import { useState } from "react";
 function Counter() {
 
     var [color ,setcolor]= useState("red");
-    var [count ,setcount]=useState(100);
+    var [count ,setcount]=useState(0);
+    const [add, setAdd] = useState(['Example Task 1', 'Example Task 2']);
     
 
   return (
@@ -48,6 +49,23 @@ function Counter() {
                 
             </div>
         </div>
+
+        <div className="container vh-100 d-flex justify-content-center align-items-center mb-5">
+            <div className="card shadow-lg p-4" style={{ width: "350px" }}>
+
+                <h3 className="text-center mb-4"style={{color:color}}>
+                To Do List
+                </h3>
+              <ul>
+                {add.map((item, index)=>(
+                  <li key={index}>{item}</li>
+                ))}
+
+              </ul>
+              <button className="btn btn-primary w-100" onClick={() => setAdd([...add, `Tasks ${add.length + 1}`])}> Add Task</button>
+
+            </div>
+        </div> 
     </>
   );
 }

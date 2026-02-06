@@ -6,8 +6,10 @@ import Home from "./pages/home/Home.jsx";
 import Aboutus from "./pages/aboutus/Aboutus.jsx";
 import Contact from "./pages/contact/Contact.jsx";
 import { Routes , Route } from "react-router-dom";
-import AdminPanel from "./pages/admin/AdminPanel.jsx";
-import AdminLogin from "./components/admin/AdminLogin.jsx";
+import Products from "./pages/products/Products.jsx";
+import InquiryList from "./pages/inquiryList/InquiryList.jsx";
+
+
 
 
 
@@ -23,9 +25,10 @@ function App() {
             <Route path="/about" element={<Aboutus />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/counter" element={<Counter />} />
-            <Route path="/admin" element={<AdminPanel />} />
-            <Route path="/login" element={<AdminLogin />} />
+            <Route path="/products" element={ <Products />} />
+            <Route path="/inquiries" element={<InquiryList />} />
             <Route path="*" element={<Home />} />
+            
           </Routes>
         </main>
 

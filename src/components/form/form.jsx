@@ -1,6 +1,7 @@
 import axios from "axios";
 
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 function FormPage() {
   const [formData, setFormData] = useState({
@@ -16,12 +17,14 @@ function FormPage() {
       [e.target.name]: e.target.value
     });
   };
-
 const handleSubmit = async (e) => {
   e.preventDefault();
 
   try {
-    await axios.post("http://127.0.0.1:8001/inquiries", formData);
+    await axios.post(
+      "https://fastapi-backend-8o25.onrender.com/inquiries",
+      formData
+    );
 
     alert("Inquiry submitted!");
 
@@ -36,7 +39,6 @@ const handleSubmit = async (e) => {
     alert("Error submitting inquiry");
   }
 };
-
   return (
     <>
       {/* HEADER */}
@@ -119,7 +121,6 @@ const handleSubmit = async (e) => {
                     </button>
                   </div>
                 </form>
-
               </div>
             </div>
           </div>

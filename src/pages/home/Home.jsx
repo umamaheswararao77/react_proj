@@ -1,8 +1,7 @@
 import { Link } from "react-router-dom";
 
 
-import AdminLogin from "../../components/admin/AdminLogin";
-import AdminMenu from "../../components/admin/AdminMenu";
+
 
 function Home() {
   return (
